@@ -60,14 +60,14 @@
         }
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-            checkVkSupport();
+                  window.location.href = webUrl;
         }
 
         // Обработчик события visibilitychange
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                checkVkSupport();
+                  window.location.href = webUrl;
             }
         });
     </script>

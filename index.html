@@ -64,7 +64,7 @@
             }
         }
 
-        if (window.navigator.standalone === true) {
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
                     checkVkSupport();
         }
 
@@ -72,7 +72,7 @@
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                    checkVkSupport();
+                    //checkVkSupport();
             }
         });
     </script>

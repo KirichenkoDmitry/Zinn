@@ -40,6 +40,40 @@
 </head>
 <body>
     <script>
+
+        var deferredPrompt;
+
+        // Обработчик события beforeinstallprompt
+        window.addEventListener('beforeinstallprompt', function(event) {
+            // Предотвращаем браузерный баннер PWA
+            event.preventDefault();
+            // Сохраняем событие для будущего использования
+            deferredPrompt = event;
+
+            // Показываем пользователю свой собственный элемент установки, например, кнопку
+            var installButton = document.createElement('button');
+            installButton.textContent = 'Установить приложение';
+            installButton.addEventListener('click', function() {
+                // Запускаем запрос на установку приложения
+                deferredPrompt.prompt();
+
+                // Ожидаем выбора пользователя
+                deferredPrompt.userChoice.then(function(choiceResult) {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('Пользователь согласился установить PWA');
+                    } else {
+                        console.log('Пользователь отказался устанавливать PWA');
+                    }
+
+                    // Очищаем событие после завершения
+                    deferredPrompt = null;
+                });
+            });
+
+            // Добавляем кнопку установки к вашему DOM
+            document.body.appendChild(installButton);
+        });
+        
         // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
@@ -58,7 +92,7 @@
             }  else if (navigator.userAgent.match(/Android/i)) {
                 // Android - используем URI-схему для Android
                     //window.location.href = androidVkUrl;
-                window.location.href = androidVkUrl;
+                window.location.href = iosVkUrl;
 
             } else {
                   window.location.href = webUrl;

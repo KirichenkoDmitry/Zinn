@@ -41,38 +41,31 @@
 <body>
     <script>
 
-        var deferredPrompt;
-
-        // Обработчик события beforeinstallprompt
-        window.addEventListener('beforeinstallprompt', function(event) {
-            // Предотвращаем браузерный баннер PWA
+    window.addEventListener('beforeinstallprompt', function(event) {
             event.preventDefault();
-            // Сохраняем событие для будущего использования
             deferredPrompt = event;
+            showInstallPrompt();
+        });
 
-            // Показываем пользователю свой собственный элемент установки, например, кнопку
+        function showInstallPrompt() {
             var installButton = document.createElement('button');
             installButton.textContent = 'Установить приложение';
             installButton.addEventListener('click', function() {
-                // Запускаем запрос на установку приложения
-                deferredPrompt.prompt();
-
-                // Ожидаем выбора пользователя
-                deferredPrompt.userChoice.then(function(choiceResult) {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('Пользователь согласился установить PWA');
-                    } else {
-                        console.log('Пользователь отказался устанавливать PWA');
-                    }
-
-                    // Очищаем событие после завершения
-                    deferredPrompt = null;
-                });
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then(function(choiceResult) {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('Пользователь согласился установить PWA');
+                        } else {
+                            console.log('Пользователь отказался устанавливать PWA');
+                        }
+                        deferredPrompt = null;
+                    });
+                }
             });
 
-            // Добавляем кнопку установки к вашему DOM
             document.body.appendChild(installButton);
-        });
+        }
         
         // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";

@@ -45,15 +45,14 @@
         // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
-        //var androidVkUrl = "intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
+        var androidVkUrl = "intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
         
-        var androidVkUrl = "google.navigation://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
 
         var redirectButton = document.getElementById("redirectButton");
         // Обработчик события для нажатия кнопки
         redirectButton.addEventListener("click", function() {
             // Перенаправьте пользователя на страницу VK
-            window.location.href = iosVkUrl;
+            window.location.href = webUrl;
         });
 
         // Функция для проверки, поддерживается ли URI-схема VK на устройстве

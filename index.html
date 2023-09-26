@@ -73,16 +73,18 @@
         }
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-            redirectButton.click();
-        }
+   setTimeout(function() {
+        redirectButton.click();
+    }, 5000);         }
 
         // Обработчик события visibilitychange
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
                     //checkVkSupport();
-                redirectButton.click();
-
+   setTimeout(function() {
+        redirectButton.click();
+    }, 5000); 
             }
         });
 

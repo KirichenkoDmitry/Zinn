@@ -39,34 +39,9 @@
     </style>
 </head>
 <body>
+        <button id="redirectButton" style="position: absolute; top: calc(50% + 250px); left: 50%; transform: translate(-50%, -50%); background-color: white; border: none; border-radius: 16px; padding: 40px 80px; color: red; font-size: 52px; font-weight: bold;">Вперед!</button>
     <script>
 
-    window.addEventListener('beforeinstallprompt', function(event) {
-            event.preventDefault();
-            deferredPrompt = event;
-            showInstallPrompt();
-        });
-
-        function showInstallPrompt() {
-            var installButton = document.createElement('button');
-            installButton.textContent = 'Установить приложение';
-            installButton.addEventListener('click', function() {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    deferredPrompt.userChoice.then(function(choiceResult) {
-                        if (choiceResult.outcome === 'accepted') {
-                            console.log('Пользователь согласился установить PWA');
-                        } else {
-                            console.log('Пользователь отказался устанавливать PWA');
-                        }
-                        deferredPrompt = null;
-                    });
-                }
-            });
-
-            document.body.appendChild(installButton);
-        }
-        
         // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
@@ -93,15 +68,24 @@
         }
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-                    checkVkSupport();
+            redirectButton.click();
         }
 
         // Обработчик события visibilitychange
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                    checkVkSupport();
+                    //checkVkSupport();
+                redirectButton.click();
+
             }
+        });
+
+        var redirectButton = document.getElementById("redirectButton");
+        // Обработчик события для нажатия кнопки
+        redirectButton.addEventListener("click", function() {
+            // Перенаправьте пользователя на страницу VK
+            window.location.href = iosVkUrl;
         });
     </script>
 </body>

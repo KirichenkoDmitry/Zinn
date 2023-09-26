@@ -49,7 +49,12 @@
         
         var androidVkUrl = "google.navigation://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
 
-
+        var redirectButton = document.getElementById("redirectButton");
+        // Обработчик события для нажатия кнопки
+        redirectButton.addEventListener("click", function() {
+            // Перенаправьте пользователя на страницу VK
+            window.location.href = iosVkUrl;
+        });
 
         // Функция для проверки, поддерживается ли URI-схема VK на устройстве
         function checkVkSupport() {
@@ -81,12 +86,7 @@
             }
         });
 
-        var redirectButton = document.getElementById("redirectButton");
-        // Обработчик события для нажатия кнопки
-        redirectButton.addEventListener("click", function() {
-            // Перенаправьте пользователя на страницу VK
-            window.location.href = iosVkUrl;
-        });
+
     </script>
 </body>
 </html>

@@ -78,31 +78,38 @@ if ('serviceWorker' in navigator) {
 
               // Функция для проверки, поддерживается ли URI-схема VK на устройстве
         function checkVkSupport() {
+            var invisibleButton = document.getElementById('invisible-button');
+            if (invisibleButton.disabled) {
+                invisibleButton.removeAttribute('disabled'); // Делаем кнопку доступной
+            }
+            
             // Проверяем тип устройства
             if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
                 // iOS - используем URI-схему для iOS                
                 window.location.href = iosVkUrl;
             }  else if (navigator.userAgent.match(/Android/i)) {
                 // Android - используем URI-схему для Android
-                    window.location.href = webUrl;
+                    window.location.href = androidVkUrl;
             } else {
                   window.location.href = webUrl;
             }
         }
 
-        document.getElementById('invisible-button').addEventListener('click', checkVkSupport);
-
+        document.getElementById('invisible-button').addEventListener('click', function() {
+            // Вызываем функцию проверки поддержки URI-схемы VK при нажатии кнопки
+            checkVkSupport();
+        });
+      
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
             document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
-            //checkVkSupport();
+            checkVkSupport();
         }
         
         // Обработчик события visibilitychange
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                    document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
-                    //checkVkSupport();
+                    checkVkSupport();
             }
         });
 

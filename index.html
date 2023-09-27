@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="192x192" href="dzin.png">
     
     <!-- Мета-теги для Windows и цветовой схемы -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/Zinn/manifest.json">
 
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -24,7 +24,7 @@
     <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+    navigator.serviceWorker.register('/Zinn/sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {

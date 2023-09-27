@@ -33,29 +33,8 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
-</script>
-    
-    <!-- Стиль для фонового изображения и полноэкранного режима -->
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
 
-        body {
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
-    </style>
-</head>
-<body>
-    <script>
-
-        // URI-схемы для VK на iOS и Android
+                // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
         var androidVkUrl = "intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
@@ -86,8 +65,26 @@ if ('serviceWorker' in navigator) {
                     checkVkSupport();
             }
         });
+</script>
+    
+    <!-- Стиль для фонового изображения и полноэкранного режима -->
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
 
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
 
-    </script>
 </body>
 </html>

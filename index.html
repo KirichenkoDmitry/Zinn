@@ -21,6 +21,20 @@
     <meta property="al:android:url" content="intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end"">
     <meta property="al:android:package" content="com.vkontakte.android">
     <meta property="al:android:app_name" content="VK">
+
+    <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>
     
     <!-- Стиль для фонового изображения и полноэкранного режима -->
     <style>

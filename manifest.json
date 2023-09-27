@@ -1,7 +1,7 @@
 {
     "name": "Zinn",
     "short_name": "VK Chat",
-    "start_url": "index.html",
+    "start_url": "https://m.vk.com/write-218837624?mvk_entrypoint=community_page",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#4a76a8",

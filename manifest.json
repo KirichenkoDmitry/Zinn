@@ -1,6 +1,6 @@
 {
     "name": "Zinn",
-    "short_name": "VK Chat",
+    "short_name": "Zinn",
     "start_url": "/Zinn/index.html",  
     "display": "standalone",
     "background_color": "#000000",

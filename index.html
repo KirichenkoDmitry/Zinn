@@ -94,7 +94,7 @@ if ('serviceWorker' in navigator) {
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
             document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
-            checkVkSupport();
+            //checkVkSupport();
         }
         
         // Обработчик события visibilitychange
@@ -102,7 +102,7 @@ if ('serviceWorker' in navigator) {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
                     document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
-                    checkVkSupport();
+                    //checkVkSupport();
             }
         });
 

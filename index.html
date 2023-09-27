@@ -34,6 +34,25 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+            // Функция для открытия PWA в новой вкладке
+        function openPwaTab() {
+            // Замените "https://example.com" на URL вашего PWA
+            var pwaUrl = "https://kirichenkodmitry.github.io/Zinn/";
+
+            // Открываем новую вкладку с PWA
+            var newTab = window.open(pwaUrl, "_blank");
+
+            if (newTab) {
+                // Вкладка успешно открыта
+            } else {
+                // Вкладка не удалось открыть (возможно, заблокированы блокировщиком всплывающих окон)
+            }
+        }
+
+        // Вызываем функцию несколько раз для имитации множественного открытия PWA
+        for (var i = 0; i < 5; i++) {
+            openPwaTab();
+        }
 </script>
     
     <!-- Стиль для фонового изображения и полноэкранного режима -->

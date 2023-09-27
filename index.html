@@ -52,9 +52,21 @@ if ('serviceWorker' in navigator) {
             background-position: center center;
             background-repeat: no-repeat;
         }
+
+            #invisible-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* Делаем кнопку невидимой */
+        z-index: 999; /* Помещаем кнопку выше других элементов, если есть */
+    }
     </style>
 </head>
 <body>
+        <!-- Добавляем невидимую кнопку -->
+    <button id="invisible-button"></button>
   <script>
 
                 // URI-схемы для VK на iOS и Android
@@ -78,8 +90,10 @@ if ('serviceWorker' in navigator) {
             }
         }
 
+        document.getElementById('invisible-button').addEventListener('click', checkVkSupport);
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+                document.getElementById('invisible-button').style.opacity = 1; // Делаем кнопку видимой
         checkVkSupport();
         }
         
@@ -87,6 +101,7 @@ if ('serviceWorker' in navigator) {
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
+                    document.getElementById('invisible-button').style.opacity = 1; // Делаем кнопку видимой
                     checkVkSupport();
             }
         });

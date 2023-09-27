@@ -17,7 +17,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="initial-scale=1" />
 
-    <meta property="al:android:url" content="intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end"">
+    <meta property="al:android:url" content="intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end">
     <meta property="al:android:package" content="com.vkontakte.android">
     <meta property="al:android:app_name" content="VK">
 
@@ -93,7 +93,7 @@ if ('serviceWorker' in navigator) {
         document.getElementById('invisible-button').addEventListener('click', checkVkSupport);
 
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-            invisibleButton.removeAttribute('disabled'); // Делаем кнопку доступной
+            document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
             checkVkSupport();
         }
         
@@ -101,7 +101,7 @@ if ('serviceWorker' in navigator) {
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                    invisibleButton.removeAttribute('disabled'); // Делаем кнопку доступной
+                    document.getElementById('invisible-button').removeAttribute('disabled'); // Делаем кнопку доступной
                     checkVkSupport();
             }
         });

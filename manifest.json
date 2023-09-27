@@ -1,7 +1,7 @@
 {
     "name": "Zinn",
     "short_name": "VK Chat",
-    "start_url": "https://kirichenkodmitry.github.io/Zinn/index.html",  
+    "start_url": "/",  
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#4a76a8",

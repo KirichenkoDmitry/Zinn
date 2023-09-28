@@ -15,8 +15,9 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1" />
-
+    //<meta name="viewport" content="initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
     <meta property="al:android:url" content="intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end">
     <meta property="al:android:package" content="com.vkontakte.android">
     <meta property="al:android:app_name" content="VK">
@@ -99,18 +100,23 @@ if ('serviceWorker' in navigator) {
 
         document.getElementById('invisible-button').addEventListener('click', function() {
             // Вызываем функцию проверки поддержки URI-схемы VK при нажатии кнопки
-            checkVkSupport();
+            //checkVkSupport();
+            <iframe src="vk://vk.com/write-218837624" height="0" width="0" style="display: none;"></iframe>
         });
       
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-            checkVkSupport();
+            //checkVkSupport();
+                        <iframe src="vk://vk.com/write-218837624" height="0" width="0" style="display: none;"></iframe>
+
         }
         
         // Обработчик события visibilitychange
         document.addEventListener('visibilitychange', function () {
             if (document.visibilityState === 'visible' && (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true)) {
                 // Вызываем функцию проверки поддержки URI-схемы VK при разворачивании
-                    checkVkSupport();
+                    //checkVkSupport();
+                            <iframe src="vk://vk.com/write-218837624" height="0" width="0" style="display: none;"></iframe>
+
             }
         });
 

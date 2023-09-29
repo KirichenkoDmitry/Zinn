@@ -54,7 +54,7 @@ if ('serviceWorker' in navigator) {
             background-repeat: no-repeat;
         }
 
-            #invisible-button {
+/*             #invisible-button {
         position: absolute;
         top: 0;
         left: 0;
@@ -62,18 +62,18 @@ if ('serviceWorker' in navigator) {
         height: 100%;
         opacity: 0; /* Делаем кнопку невидимой */
         z-index: 999; /* Помещаем кнопку выше других элементов, если есть */
-    }
+    } */
     </style>
 </head>
 <body>
         <!-- Добавляем невидимую кнопку -->
-<button id="invisible-button" disabled></button>
+//<button id="invisible-button" disabled></button>
   <script>
 
                 // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
-        var androidVkUrl = "intent://vk.com/write-218837624?mvk_entrypoint=community_page#Intent;package=com.vkontakte.android;scheme=https;end";
+        var androidVkUrl = "intent://vk.me/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
               //var androidVkUrl = "https://vk.me/alfa_dzin";
 
 
@@ -97,13 +97,15 @@ if ('serviceWorker' in navigator) {
 
             } else {
                   //window.location.href = webUrl;
+                                    window.location.href = androidVkUrl;
+
             }
         }
 
-        document.getElementById('invisible-button').addEventListener('click', function() {
-            // Вызываем функцию проверки поддержки URI-схемы VK при нажатии кнопки
-            checkVkSupport();
-        });
+        // document.getElementById('invisible-button').addEventListener('click', function() {
+        //     // Вызываем функцию проверки поддержки URI-схемы VK при нажатии кнопки
+        //     checkVkSupport();
+        // });
       
         if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
             checkVkSupport();

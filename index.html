@@ -38,7 +38,6 @@ if ('serviceWorker' in navigator) {
         
 </script>
     
-    <!-- Стиль для фонового изображения и полноэкранного режима -->
     <style>
         html, body {
             margin: 0;
@@ -53,29 +52,47 @@ if ('serviceWorker' in navigator) {
             background-position: center center;
             background-repeat: no-repeat;
         }
+        
+        /* Стиль для центрирования кнопки */
+        .centered-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 100% высоты окна просмотра */
+        }
 
-/*             #invisible-button {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0; /* Делаем кнопку невидимой */
-        z-index: 999; /* Помещаем кнопку выше других элементов, если есть */
-    } */
+        /* Стиль для кнопки скачивания APK */
+        .download-button {
+            padding: 15px 30px; /* Задаем отступы для кнопки */
+            border-radius: 20px; /* Задаем скругленные углы */
+            font-size: 18px; /* Задаем размер шрифта */
+            background-color: #3498db; /* Задаем цвет фона кнопки */
+            color: #ffffff; /* Задаем цвет текста кнопки */
+            border: none; /* Убираем границу кнопки */
+            cursor: pointer; /* Изменяем указатель мыши при наведении на кнопку */
+            transition: background-color 0.3s; /* Добавляем анимацию при наведении */
+        }
+
+        .download-button:hover {
+            background-color: #2980b9; /* Изменяем цвет фона при наведении */
+        }
     </style>
 </head>
 <body>
 
-        <!-- Добавьте кнопку для скачивания APK -->
+        <div class="centered-button">
+        <a href="/Zinn/app-debug.apk" download="app-debug.apk">
+            <button class="download-button">Скачать APK</button>
+        </a>
+    </div>
+    
+<!--         <!-- Добавьте кнопку для скачивания APK -->
     <a href="/Zinn/app-debug.apk" download="app-debug.apk">
         <button>Скачать APK</button>
-    </a>
-        <!-- Добавляем невидимую кнопку -->
-//<button id="invisible-button" disabled></button>
+    </a> -->
+
   <script>
 
-                // URI-схемы для VK на iOS и Android
         var iosVkUrl = "vk://vk.com/write-218837624?mvk_entrypoint=community_page";
         var webUrl = "https://m.vk.com/write-218837624?mvk_entrypoint=community_page";
         var androidVkUrl = "intent://vk.com/write-218837624#Intent;package=com.vkontakte.android;scheme=https;end";
